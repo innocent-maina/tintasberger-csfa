@@ -14,7 +14,7 @@ export function useOrder() {
       phone: "",
       address: "",
       image_url:
-        "https://ttvkvuxuamvxjoloqobx.supabase.co/storage/v1/object/public/general//profile_default.png",
+        "https://jmqaeeeahxkidxxkbtnj.supabase.co/storage/v1/object/public/general//profile_default.png",
     },
     status: "Pending",
     product_attributes: {
@@ -58,7 +58,7 @@ export function useOrder() {
         phone: "",
         address: "",
         image_url:
-          "https://ttvkvuxuamvxjoloqobx.supabase.co/storage/v1/object/public/general//profile_default.png",
+          "https://jmqaeeeahxkidxxkbtnj.supabase.co/storage/v1/object/public/general//profile_default.png",
       },
       product_attributes: {
         color: "",

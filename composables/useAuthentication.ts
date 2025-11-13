@@ -44,6 +44,7 @@ export function useAuthentication() {
     phone_number: "",
     username: "",
     password: "",
+    role: "",
   }));
 
   const resetRegisterFormState = () => {
@@ -53,6 +54,7 @@ export function useAuthentication() {
       phone_number: "",
       username: "",
       password: "",
+      role: "",
     };
   };
 
@@ -211,8 +213,7 @@ export function useAuthentication() {
           phone_number: registerFormState.value.phone_number,
           password: registerFormState.value.password,
           account_id: generateAccountId(),
-          role:
-            registeringAs === "individual" ? "patient" : "organization_admin",
+          role: registerFormState.value.role,
           username: slugify(registerFormState.value.full_name),
         },
       });

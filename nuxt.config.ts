@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     redirect: false,
     url:
       process.env.NUXT_SUPABASE_URL ||
-      "https://ttvkvuxuamvxjoloqobx.supabase.co",
+      "https://jmqaeeeahxkidxxkbtnj.supabase.co",
     key: process.env.NUXT_SUPABASE_ANON_KEY,
     serviceKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY,
   },
@@ -31,7 +31,7 @@ export default defineNuxtConfig({
       APP_URL: process.env.APP_URL,
       supabaseUrl:
         process.env.NUXT_SUPABASE_URL ||
-        "https://ttvkvuxuamvxjoloqobx.supabase.co",
+        "https://jmqaeeeahxkidxxkbtnj.supabase.co",
       supabaseAnonKey: process.env.NUXT_SUPABASE_ANON_KEY,
       supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY,
       port: process.env.NUXT_PORT,
