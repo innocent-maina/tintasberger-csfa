@@ -1,0 +1,47 @@
+import { createClient } from "@supabase/supabase-js";
+
+export default defineEventHandler(async (event) => {
+  // Initialize Supabase Client with the Service Role Key
+
+  const runtimeConfig = useRuntimeConfig()
+
+  const supabase = createClient(
+    runtimeConfig.public.supabaseUrl,
+    runtimeConfig.public.supabaseServiceRoleKey
+  );
+
+  if (!supabase) {
+    throw createError({
+      statusCode: 500,
+      message: "Failed to initialize Supabase client.",
+    });
+  }
+
+  // Extract user ID from query parameters
+  const { user_id } = getQuery(event);
+
+  if (!user_id) {
+    throw createError({
+      statusCode: 400,
+      message: "User ID is required.",
+    });
+  }
+
+  try {
+    // Fetch notifications where patient_id matches user_id
+    const { data, error } = await supabase
+      .from("notifications")
+      .select("*, user:users(full_name)")
+      .eq("user_id", user_id) // Only notifications for this user
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      throw createError({ statusCode: 500, message: error.message });
+    }
+
+    return { success: true, data };
+  } catch (err) {
+    console.error("Error fetching user notifications:", err);
+    return { success: false, message: "Failed to fetch user notifications." };
+  }
+});
