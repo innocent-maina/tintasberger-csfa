@@ -133,7 +133,7 @@ const saveInvoice = async () => {
 
           <!-- Right: Company Info -->
           <div class="w-1/2 text-right">
-            <p class="font-bold text-base">LegendArt Crafts & Designs</p>
+            <p class="font-bold text-base">Robbialacs</p>
             <p class="text-xs">For all your furniture needs</p>
             <p class="text-xs mt-4">
               Mbanya Lane, Gathanga<br />

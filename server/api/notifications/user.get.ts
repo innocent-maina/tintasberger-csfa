@@ -3,11 +3,11 @@ import { createClient } from "@supabase/supabase-js";
 export default defineEventHandler(async (event) => {
   // Initialize Supabase Client with the Service Role Key
 
-  const runtimeConfig = useRuntimeConfig()
+  const config = useRuntimeConfig();
 
   const supabase = createClient(
-    runtimeConfig.public.supabaseUrl,
-    runtimeConfig.public.supabaseServiceRoleKey
+    config.supabaseUrl,
+    config.supabaseServiceRoleKey
   );
 
   if (!supabase) {

@@ -4,11 +4,11 @@ import { createClient } from "@supabase/supabase-js";
 export default defineEventHandler(async (event) => {
   // const supabase = await serverSupabaseClient(event);
 
-  const runtimeConfig = useRuntimeConfig()
+  const config = useRuntimeConfig();
 
   const supabase = createClient(
-    runtimeConfig.public.supabaseUrl,
-    runtimeConfig.public.supabaseServiceRoleKey
+    config.supabaseUrl,
+    config.supabaseServiceRoleKey
   );
 
 

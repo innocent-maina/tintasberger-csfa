@@ -80,7 +80,7 @@ if (userRole.value === "admin") {
         class="text-lg font-semibold transition-opacity duration-200"
         :class="isOpen ? 'opacity-100' : 'opacity-0'"
       >
-        LegendArt
+        Robbialac
       </span>
     </NuxtLink>
 

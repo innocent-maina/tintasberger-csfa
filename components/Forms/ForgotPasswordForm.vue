@@ -11,13 +11,13 @@ const handleSubmit = async () => {
   <UForm @submit.prevent="handleSubmit" :state="forgotPasswordFormState">
     <UFormGroup
       class="py-3"
-      label="Enter your legendartcraft email to receive the reset password link"
+      label="Enter your Robbialac email to receive the reset password link"
       name="email"
     >
       <UInput
         class="py-4"
         v-model="forgotPasswordFormState.email"
-        placeholder="person@legendartcraft.com"
+        placeholder="person@robbialac.co.mz"
       />
     </UFormGroup>
 

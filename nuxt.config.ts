@@ -6,9 +6,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: (titleChunk) => {
-        return titleChunk
-          ? `${titleChunk} | Legendart Crafts & Design`
-          : "LegendArt Crafts & Design";
+        return titleChunk ? `${titleChunk} | Robbialac` : "Robbialac";
       },
     },
   },
@@ -19,24 +17,18 @@ export default defineNuxtConfig({
 
   supabase: {
     redirect: false,
-    url:
-      process.env.NUXT_SUPABASE_URL ||
-      "https://jmqaeeeahxkidxxkbtnj.supabase.co",
+    url: process.env.NUXT_SUPABASE_URL,
     key: process.env.NUXT_SUPABASE_ANON_KEY,
     serviceKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY,
   },
 
   runtimeConfig: {
+    supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY,
+    supabaseUrl: process.env.NUXT_SUPABASE_URL,
+
     public: {
-      APP_URL: process.env.APP_URL,
-      supabaseUrl:
-        process.env.NUXT_SUPABASE_URL ||
-        "https://jmqaeeeahxkidxxkbtnj.supabase.co",
+      supabaseUrl: process.env.NUXT_SUPABASE_URL,
       supabaseAnonKey: process.env.NUXT_SUPABASE_ANON_KEY,
-      supabaseServiceRoleKey: process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY,
-      port: process.env.NUXT_PORT,
-      mapsApiKey: process.env.NUXT_PUBLIC_MAPS_API_KEY,
-      analyticsId: process.env.NUXT_GOOGLE_ANALYTICS_ID,
     },
   },
 
@@ -45,7 +37,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@vueuse/nuxt",
     "@nuxtjs/supabase",
-    "nuxt-rating"
+    "nuxt-rating",
   ],
 
   compatibilityDate: "2025-03-08",

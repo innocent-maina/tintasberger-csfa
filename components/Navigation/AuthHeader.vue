@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const navLinks = [
-  { name: "Website", path: "https://legendartcraft.com/" },
+  { name: "Website", path: "https://robbialac.co.mz/" },
 ];
 
 const themes = [
@@ -36,7 +36,7 @@ const toggleTheme = () => {
         aria-label="Brand"
       >
         <img src="/logo.png" class="h-[65px]" />
-        <p class="text-sm leading-tight hidden md:block">LegendArt</p>
+        <p class="text-sm leading-tight hidden md:block">Robbialac</p>
       </NuxtLink>
 
       <!-- Navigation Links -->

@@ -1,22 +1,22 @@
 import { createClient } from "@supabase/supabase-js";
 
 export default defineEventHandler(async (event) => {
-  const runtimeConfig = useRuntimeConfig()
+  const config = useRuntimeConfig();
 
   const supabase = createClient(
-    runtimeConfig.public.supabaseUrl,
-    runtimeConfig.public.supabaseServiceRoleKey
+    config.supabaseUrl,
+    config.supabaseServiceRoleKey
   );
 
-  const suppliersData = await readBody(event);
-  if (!suppliersData) {
-    throw createError({ statusCode: 400, message: "Missing suppliers data" });
+  const assetsData = await readBody(event);
+  if (!assetsData) {
+    throw createError({ statusCode: 400, message: "Missing assets data" });
   }
 
   try {
     const { data, error } = await supabase
-      .from("suppliers")
-      .insert(suppliersData)
+      .from("assets")
+      .insert(assetsData)
       .select()
       .single();
 
@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
 
     return { success: true, data };
   } catch (err) {
-    console.error("Error creating suppliers:", err);
+    console.error("Error creating assets:", err);
     return { success: false, message: "Internal Server Error" };
   }
 });

@@ -18,7 +18,7 @@ useSeoMeta({
         <UCard>
           <!-- Logo -->
           <div class="mb-6">
-            <img src="/logo.png" class="h-16 w-16" alt="LegendArt Logo" />
+            <img src="/logo.png" class="h-16 w-16" alt="Robbialac Logo" />
           </div>
           <h2 class="text-2xl font-bold text-gray mb-2">Reset Password?</h2>
 
@@ -33,7 +33,7 @@ useSeoMeta({
     <!-- Footer text at bottom -->
     <div class="text-center pb-40">
       <NuxtLink
-        :to="`mailto:brian@legendartcraft.com`"
+        :to="`mailto:brian@robbialac.co.mz`"
         target="_blank"
         class="text-sm text-primary"
       >

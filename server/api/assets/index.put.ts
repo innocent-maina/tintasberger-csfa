@@ -1,38 +1,38 @@
 import { createClient } from "@supabase/supabase-js";
 
 export default defineEventHandler(async (event) => {
-  const runtimeConfig = useRuntimeConfig()
+  const config = useRuntimeConfig();
 
   const supabase = createClient(
-    runtimeConfig.public.supabaseUrl,
-    runtimeConfig.public.supabaseServiceRoleKey
+    config.supabaseUrl,
+    config.supabaseServiceRoleKey
   );
 
   const { id } = getQuery(event);
   if (!id) {
-    throw createError({ statusCode: 400, message: "Missing attendance ID" });
+    throw createError({ statusCode: 400, message: "Missing assets ID" });
   }
 
   const updateData = await readBody(event);
   if (!updateData) {
-    throw createError({ statusCode: 400, message: "Missing attendance data" });
+    throw createError({ statusCode: 400, message: "Missing assets data" });
   }
 
   try {
     const { data, error } = await supabase
-      .from("attendance")
+      .from("assets")
       .update(updateData)
       .eq("id", id)
       .select()
       .single();
 
     if (error) {
-      console.error(`Error updating attendance with id ${id}:`, error.message);
+      console.error(`Error updating assets with id ${id}:`, error.message);
       return { success: false, data: error.message };
     }
     return { success: true, data };
   } catch (err) {
-    console.error(`Error updating attendance with id ${id}:`, err);
+    console.error(`Error updating assets with id ${id}:`, err);
     return { success: false, data: "Internal Server Error" };
   }
 });

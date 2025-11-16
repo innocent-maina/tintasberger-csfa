@@ -4,13 +4,15 @@ import { createClient } from "@supabase/supabase-js";
 export default defineEventHandler(async (event) => {
   // const supabase = await serverSupabaseClient(event);
 
-  const runtimeConfig = useRuntimeConfig()
+  const config = useRuntimeConfig();
+
+
+  console.log('config', config)
 
   const supabase = createClient(
-    runtimeConfig.public.supabaseUrl,
-    runtimeConfig.public.supabaseServiceRoleKey
+    config.supabaseUrl,             // server-only URL
+    config.supabaseServiceRoleKey   // server-only service role key
   );
-
 
   if (!supabase) {
     throw createError({

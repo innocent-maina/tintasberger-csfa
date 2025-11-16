@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'LegendArt-Dashboard',
+      name: 'Tintasberger-CSFA-Frontend',
       port: '4000',
       exec_mode: 'cluster',
       instances: 'max',

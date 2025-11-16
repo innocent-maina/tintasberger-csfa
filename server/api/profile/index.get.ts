@@ -2,11 +2,11 @@ import { createClient } from "@supabase/supabase-js";
 import { defineEventHandler, getCookie, createError } from "h3";
 
 export default defineEventHandler(async (event) => {
-  const runtimeConfig = useRuntimeConfig()
+  const config = useRuntimeConfig();
 
   const supabase = createClient(
-    runtimeConfig.public.supabaseUrl,
-    runtimeConfig.public.supabaseServiceRoleKey
+    config.supabaseUrl,
+    config.supabaseServiceRoleKey
   );
 
   const { id } = getQuery(event);

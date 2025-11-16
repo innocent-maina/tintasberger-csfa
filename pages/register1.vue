@@ -27,7 +27,7 @@ const userRoles = [
         <div class="flex flex-col items-center space-y-4">
           <img src="/logo.png" class="h-16" />
           <h2 class="text-xl font-bold">
-            Welcome to LegendArt Crafts & Design
+            Welcome to Robbialac
           </h2>
           <p class="text-gray-500 text-sm">Enter your details to continue</p>
         </div>

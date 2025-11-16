@@ -1,21 +1,21 @@
 import { createClient } from "@supabase/supabase-js";
 
 export default defineEventHandler(async (event) => {
-  const runtimeConfig = useRuntimeConfig()
+  const config = useRuntimeConfig();
 
   const supabase = createClient(
-    runtimeConfig.public.supabaseUrl,
-    runtimeConfig.public.supabaseServiceRoleKey
+    config.supabaseUrl,
+    config.supabaseServiceRoleKey
   );
 
   const { id } = getQuery(event);
   if (!id) {
-    throw createError({ statusCode: 400, message: "Missing suppliers ID" });
+    throw createError({ statusCode: 400, message: "Missing assets ID" });
   }
 
   try {
     const { data, error } = await supabase
-      .from("suppliers")
+      .from("assets")
       .delete()
       .eq("id", id);
 
@@ -24,7 +24,7 @@ export default defineEventHandler(async (event) => {
     }
     return { success: true, data };
   } catch (err) {
-    console.error(`Error deleting suppliers with id ${id}:`, err);
+    console.error(`Error deleting assets with id ${id}:`, err);
     return { success: false, message: "Internal Server Error" };
   }
 });
